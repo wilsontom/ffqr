@@ -42,3 +42,45 @@ check_value <- function(x)
   return(value_out)
 
 }
+
+
+#' Convert to Servings
+#'
+#' Convert FFQ responses to approximate servings per day
+#'
+#' @param x a FFQ response value
+#' @return a numeric value for the approimate servings per day
+#' @keywords internal
+
+servings <- function(x)
+{
+  if (x == 'Never or less than once/ month') {
+    serving <- 0
+  }
+  if (x == '1-3 per month') {
+    serving <- 0.1
+  }
+  if (x == 'Once a week') {
+    serving <- 0.15
+  }
+  if (x == '2-4 per week') {
+    serving <- 0.43
+  }
+  if (x == '5-6 per week') {
+    serving <- 0.79
+  }
+  if (x == 'Once a day') {
+    serving <- 1
+  }
+  if (x == '2-3 per day') {
+    serving <- 2.5
+  }
+  if (x == '4-5 per day') {
+    serving <- 4.5
+  }
+  if (x == '6+ per day') {
+    serving <- 6
+  }
+  return(serving)
+
+}
