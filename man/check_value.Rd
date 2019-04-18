@@ -6,6 +6,12 @@
 \usage{
 check_value(x)
 }
+\arguments{
+\item{x}{the `value` column of a FFQ `tibble`}
+}
+\value{
+a numeric vector of position for removal
+}
 \description{
 Check that each extracted variable is a food consumption catagoryu
 }
