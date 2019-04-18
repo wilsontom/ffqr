@@ -2,8 +2,8 @@
 #'
 #' Check that each extracted variable is a food consumption catagoryu
 #'
-#' @param
-#' @return
+#' @param x the `value` column of a FFQ `tibble`
+#' @return a numeric vector of position for removal
 #' @keywords internal
 
 check_value <- function(x)
