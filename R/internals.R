@@ -52,7 +52,7 @@ check_value <- function(x)
 #' @return a numeric value for the approimate servings per day
 #' @keywords internal
 
-servings <- function(x)
+convert_servings <- function(x)
 {
   if (x == 'Never or less than once/ month') {
     serving <- 0
