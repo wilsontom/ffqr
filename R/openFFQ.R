@@ -2,7 +2,13 @@
 #'
 #' @param ffq a list of Food Frequency Questionaires (FFQ)
 #' @return a S4 object (`ffqr`) which FFQ data converted to protions per day and grams per day
+#'
+#' @importFrom methods new
+#' @importFrom  dplyr %>% left_join filter summarise mutate select summarise_each bind_rows
+#' @importFrom purrr map_chr map2_dbl
+#' @importFrom stringr str_split str_remove
 #' @export
+
 
 openFFQ <- function(ffq = list())
 {
