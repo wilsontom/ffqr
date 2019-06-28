@@ -1,14 +1,44 @@
 #'
+#' @rdname AHEI2010
 #'
-#'
-#'
-#'
-
+#' @param object a `ffqr` object
+#' @return a list of `tibbles`
+#' @export
 
 setGeneric(
-  name = 'componentScores',
+  name = 'AHEI2010',
   def = function(object)
   {
-    standardGeneric('componentScores')
+    standardGeneric('AHEI2010')
+  }
+)
+
+#'
+#' @rdname calculate_nutrients
+#'
+#' @param object a `ffqr` object
+#' @return a `ffqr` object
+#' @export
+
+setGeneric(
+  name = 'calculate_nutrients',
+  def = function(object)
+  {
+    standardGeneric('calculate_nutrients')
+  }
+)
+
+#'
+#' @rdname total_nutrients
+#'
+#' @param object a `ffqr` object
+#' @return a list of `tibbles`
+#' @export
+
+setGeneric(
+  name = 'total_nutrients',
+  def = function(object)
+  {
+    standardGeneric('total_nutrients')
   }
 )
