@@ -4,11 +4,14 @@ Title: Tools for analysing Food Frequency Questionnaires (FFQ)
 Version: 0.1.0
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: Process self-reported Food Frequency Questionnaires into portions, grams, daily nutrient intake and 
-calculate useful dietary individes such as the Alternate Healthy Eating Index (AHEI) 2010 and the Prudent Diet Score (PDS). 
-Depends: purrr,
-         stringr,
-         dplyr
+Description: Process self-reported Food Frequency Questionnaires into portions, grams, daily nutrient intake and calculate useful dietary individes such as the Alternate Healthy Eating Index (AHEI) 2010 and the Prudent Diet Score (PDS). 
+Depends: 
+    purrr,
+    stringr,
+    dplyr
+Imports:
+    stringdist,
+    tibble
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
