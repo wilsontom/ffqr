@@ -1,10 +1,11 @@
-Package: AHEI
+Package: ffqr
 Type: Package
-Title: Calculate the Alternative Healthy Eating Index (AHEI) from a Food Frequency Questionnaire (FFQ)
+Title: Tools for analysing Food Frequency Questionnaires (FFQ)
 Version: 0.1.0
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: Using a self reported Food Frequency Questionnaire calculate the Alternative Healthy Eating Index. 
+Description: Process self-reported Food Frequency Questionnaires into portions, grams, daily nutrient intake and 
+calculate useful dietary individes such as the Alternate Healthy Eating Index (AHEI) 2010 and the Prudent Diet Score (PDS). 
 Depends: purrr,
          stringr,
          dplyr
