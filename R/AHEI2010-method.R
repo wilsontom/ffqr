@@ -4,6 +4,8 @@
 #' Foor Frequency Questionaire (FFQ). The AHEI-2010 consists of 11 individual components which are all dietary components which are
 #' linked to healthy eating and the incidence of chronic conditions.
 #'
+#' @include allGenerics.R
+#' @include allClasses.R
 
 setMethod(f = AHEI2010, signature = 'ffqr',
           function(object)
