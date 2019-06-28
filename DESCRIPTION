@@ -28,3 +28,4 @@ Collate:
     'openFFQ.R'
     'score_increments.R'
     'total_nutrients-method.R'
+    'zzz.R'
