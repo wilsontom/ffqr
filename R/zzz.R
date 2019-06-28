@@ -17,6 +17,7 @@ globalVariables(
     'PUFA',
     'Energy',
     'SODIUM',
-    'TRANS_FAT'
+    'TRANS_FAT',
+    '.'
   )
 )
