@@ -29,7 +29,7 @@ score_increments <- function(start, end, n)
   })
 
   increment_index <-
-    tibble(
+    tibble::tibble(
       Score = 1:n,
       Lower = as.numeric(lowint),
       Upper = as.numeric(highint)
