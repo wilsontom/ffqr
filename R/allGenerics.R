@@ -1,4 +1,4 @@
-#'
+#' AHEI-2010
 #' @rdname AHEI2010
 #'
 #' @param object a `ffqr` object
@@ -13,7 +13,7 @@ setGeneric(
   }
 )
 
-#'
+#' Calculate Nutrients
 #' @rdname calculate_nutrients
 #'
 #' @param object a `ffqr` object
@@ -28,7 +28,7 @@ setGeneric(
   }
 )
 
-#'
+#' Total Nutrients
 #' @rdname total_nutrients
 #'
 #' @param object a `ffqr` object
