@@ -2,9 +2,9 @@ Package: AHEI
 Type: Package
 Title: Calculate the Alternative Healthy Eating Index (AHEI) from a Food Frequency Questionnaire (FFQ)
 Version: 0.1.0
-Author: Authors@R: c(
+Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: Using a self reported Food Frequency Questionnaire calculate the Alternative Healthy Eating Index 
+Description: Using a self reported Food Frequency Questionnaire calculate the Alternative Healthy Eating Index. 
 Depends: purrr,
          stringr,
          dplyr
