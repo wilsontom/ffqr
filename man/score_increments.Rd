@@ -13,6 +13,9 @@ score_increments(start, end, n)
 
 \item{n}{the number of groups that the increments are divided into}
 }
+\value{
+a `tibble` of incremental group thresholds
+}
 \description{
 Create incremental scores for each
 }

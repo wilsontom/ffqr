@@ -5,5 +5,13 @@
 \alias{ffqr-class}
 \title{FFQ Class}
 \description{
-FFQ Class
+A S4 class to store Food Frequency Questionnaires (FFQs)
 }
+\section{Slots}{
+
+\describe{
+\item{\code{FFQ}}{a list of cleaned FFQ tibbles}
+
+\item{\code{Nutrients}}{a list of tibbles containing daily nutrient intake values for each FFQ food component}
+}}
+
