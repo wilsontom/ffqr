@@ -5,7 +5,8 @@
 #' @param start a numeric value where the scoring starts
 #' @param end a numeric value where the scoring ends
 #' @param n the number of groups that the increments are divided into
-#' @return
+#' @return a `tibble` of incremental group thresholds
+#'
 #' @keywords internal
 
 score_increments <- function(start, end, n)
