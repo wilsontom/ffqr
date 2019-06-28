@@ -1,11 +1,12 @@
 #' Assign Incremental Scores
 #'
+#' Create incremental scores for each
 #'
-#' @param start
-#' @param end
-#' @param n
+#' @param start a numeric value where the scoring starts
+#' @param end a numeric value where the scoring ends
+#' @param n the number of groups that the increments are divided into
 #' @return
-#' @export
+#' @keywords internal
 
 score_increments <- function(start, end, n)
 {
