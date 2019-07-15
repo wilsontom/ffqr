@@ -1,4 +1,4 @@
-#' @rdname AlcholAHEI
+#' @rdname AlcoholAHEI
 #'
 #' @description
 #'
