@@ -42,3 +42,26 @@ setGeneric(
     standardGeneric('total_nutrients')
   }
 )
+
+
+#' AHEI2010 Alcohol Correction
+#' @rdname AlcoholAHEI
+#'
+#' @param object a `AHEI` object
+#' @param gender a character string of Gender (F or M)
+#' @return a `AHEI` object
+#' @export
+
+setGeneric(
+  name = 'AlcoholAHEI',
+  def = function(object, gender)
+  {
+    standardGeneric('AlcoholAHEI')
+  }
+)
+
+
+
+
+
+
