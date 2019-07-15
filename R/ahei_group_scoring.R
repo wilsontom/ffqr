@@ -11,7 +11,7 @@ ahei_group_scoring <- function(x, group)
     score_index <- score_increments(start = 0.01, end = 4.99, n = 900)
 
     if (x >= 5) {
-      xsc <- 10
+      xcs <- 10
     }
 
     if (x == 0) {
@@ -20,9 +20,9 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0 &
         x < 5) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                score_index$Upper > x)] / 90, digits = 2)
     }
 
   }
@@ -31,7 +31,7 @@ ahei_group_scoring <- function(x, group)
     score_index <- score_increments(start = 0.01, end = 3.99, n = 900)
 
     if (x >= 4) {
-      xsc <- 10
+      xcs <- 10
     }
 
     if (x == 0) {
@@ -40,9 +40,9 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0 &
         x < 4) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
 
   }
@@ -53,7 +53,7 @@ ahei_group_scoring <- function(x, group)
     score_index <- score_increments(start = 0.01, end = 14.99, n = 900)
 
     if (x >= 15) {
-      xsc <- 10
+      xcs <- 10
     }
 
     if (x == 0) {
@@ -62,9 +62,9 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0 &
         x < 15) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
 
   }
@@ -76,7 +76,7 @@ ahei_group_scoring <- function(x, group)
       score_increments(start = 0.01, end = 0.99, n = 900) %>% mutate(Score = rev(Score))
 
     if (x >= 1) {
-      xsc <- 0
+      xcs <- 0
     }
 
     if (x == 0) {
@@ -85,9 +85,9 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0 &
         x < 1) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
 
   }
@@ -98,7 +98,7 @@ ahei_group_scoring <- function(x, group)
       score_increments(start = 0.01, end = 0.99, n = 900)
 
     if (x >= 1) {
-      xsc <- 10
+      xcs <- 10
     }
 
     if (x == 0) {
@@ -107,9 +107,9 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0 &
         x < 1) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
 
 
@@ -121,7 +121,7 @@ ahei_group_scoring <- function(x, group)
       score_increments(start = 0.01, end = 1.49, n = 900) %>% mutate(Score = rev(Score))
 
     if (x >= 1.5) {
-      xsc <- 0
+      xcs <- 0
     }
 
     if (x == 0) {
@@ -130,15 +130,13 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0 &
         x < 1.5) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
 
 
   }
-
-
 
 
   if (group == 'A7') {
@@ -146,7 +144,7 @@ ahei_group_scoring <- function(x, group)
       score_increments(start = 0.01, end = 249.99, n = 900)
 
     if (x <= 0) {
-      xsc <- 0
+      xcs <- 0
     }
 
     if (x >= 250) {
@@ -155,9 +153,9 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0.01 &
         x < 249.99) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
 
 
@@ -169,7 +167,7 @@ ahei_group_scoring <- function(x, group)
       score_increments(start = 2.01, end = 9.99, n = 900)
 
     if (x <= 2) {
-      xsc <- 0
+      xcs <- 0
     }
 
     if (x >= 10) {
@@ -178,16 +176,16 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0.01 &
         x < 9.99) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
 
 
   }
 
   if (group == 'A9') {
-    xsc <- x * 90
+    xcs <- x
   }
 
 
@@ -199,20 +197,19 @@ ahei_group_scoring <- function(x, group)
       score_increments(start = 0.01, end = 3.0, n = 900) %>% mutate(Score = rev(Score))
 
     if (x >= 3) {
-      xsc <- 0
+      xcs <- 0
     }
 
     if (x <= 1) {
       xcs <- 10
     }
 
-    if (x > 0 &
-        x < 1) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+    if (x > 1 &
+        x < 3) {
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
-
   }
 
 
@@ -223,7 +220,7 @@ ahei_group_scoring <- function(x, group)
       score_increments(start = 0.01, end = 4.0, n = 900) %>% mutate(Score = rev(Score))
 
     if (x >= 4) {
-      xsc <- 0
+      xcs <- 0
     }
 
     if (x <= 0.5) {
@@ -232,17 +229,14 @@ ahei_group_scoring <- function(x, group)
 
     if (x > 0.5 &
         x < 4) {
-      xsc <-
-        score_index$Score[which(score_index$Lower <= x &
-                                  score_index$Upper > x)]
+      xcs <-
+        round(score_index$Score[which(score_index$Lower <= x &
+                                  score_index$Upper > x)] / 90, digits = 2)
     }
-
 
 
   }
 
-  xsc <- round((xsc / 90), digits = 2)
 
-
-  return(xsc)
+  return(xcs)
 }
