@@ -12,7 +12,8 @@ Depends:
     methods
 Imports:
     stringdist,
-    tibble
+    tibble,
+    tidyr
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
