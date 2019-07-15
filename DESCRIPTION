@@ -23,6 +23,7 @@ Collate:
     'allGenerics.R'
     'AHEI2010-method.R'
     'AHEI_ComponentIndex.R'
+    'AlcoholAHEI.R'
     'Nutrients.R'
     'Portions.R'
     'ahei_group_scoring.R'
