@@ -75,6 +75,50 @@ setMethod(f = AHEI2010, signature = 'ffqr',
             }
 
 
-            return(AHEI_SCORES)
+           AHEIob <- new('AHEI')
+
+
+           rawValues <-
+             map(AHEI_SCORES, ~ {
+               tibble(Component = .$Component,
+                      rawValue = .$Value,
+               )
+             })
+
+           for(i in seq_along(rawValues)) {
+             rawValues[[i]] <- rawValues[[i]] %>% mutate(ID = rep(i))
+           }
+
+
+           AHEIob@rawValues <-
+             rawValues %>% bind_rows() %>%
+             tidyr::spread(Component, rawValue) %>%
+             select(A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11)
+
+           Scores <-
+             map(AHEI_SCORES, ~ {
+               tibble(Component = .$Component,
+                      Score = .$Score,
+               )
+             })
+
+           for(i in seq_along(Scores)) {
+             Scores[[i]] <- Scores[[i]] %>% mutate(ID = rep(i))
+           }
+
+           AHEIob@componentScores <-
+             Scores %>% bind_rows() %>%
+             tidyr::spread(Component, Score) %>%
+             select(A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11)
+
+
+           AHEIob@componentScores <- AHEIob@componentScores  %>%
+             mutate(A9 = (11 - ntile(A9, n = 10)))
+
+
+           AHEIob@AHEIScore <- apply(AHEIob@componentScores, 1, sum)
+
+
+            return(AHEIob)
 
           })
