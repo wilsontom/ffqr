@@ -10,12 +10,21 @@
 #' @export
 
 
-openFFQ <- function(ffq = list())
+openFFQ <- function(ffq_df = list())
 {
+
+  ffq <- list()
+  for(i in 1:nrow(ffq_df)){
+    ffq[[i]] <- ffq_df[i,]
+  }
+
+
   columns_out <- purrr::map(ffq, check_value)
 
   for (i in seq_along(ffq)) {
+    if(length(columns_out[[i]]) > 0){
     ffq[[i]] <- ffq[[i]][, -columns_out[[i]]]
+    }
   }
 
   FFQStranspose <- purrr::map(ffq, t)
