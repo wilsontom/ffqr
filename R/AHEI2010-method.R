@@ -13,7 +13,7 @@ setMethod(f = AHEI2010, signature = 'ffqr',
             AHEI_SCORES <- list()
             for (i in seq_along(object@FFQ)) {
               AHEI_INDEX <-
-                left_join(AHEI_ComponentIndex, object@FFQ[[i]], by = 'FOOD_COMPONENT') %>% left_join(., object@Nutrients[[i]], by = 'FOOD_COMPONENT')
+                full_join(AHEI_ComponentIndex, object@FFQ[[i]], by = 'FOOD_COMPONENT') %>% full_join(., object@Nutrients[[i]], by = 'FOOD_COMPONENT')
 
 
               A1 <-
@@ -35,7 +35,7 @@ setMethod(f = AHEI2010, signature = 'ffqr',
                 AHEI_INDEX %>% filter(GROUP == 'A6') %>% summarise(Value = sum(SERVINGS)) %>% tibble::add_column(Component = 'A6', .before = 'Value')
 
               A7 <-
-                AHEI_INDEX %>% select(EICOSAPENTAENOIC_ACID, DOCOSAHEXAENOIC_ACID) %>% summarise_each(sum) %>% mutate(Value = sum(.) * 1000) %>%
+                AHEI_INDEX %>% select(EICOSAPENTAENOIC_ACID, DOCOSAHEXAENOIC_ACID) %>% summarise_each(sum) %>% mutate(Value = sum(.) * 1E03) %>%
                 select(Value) %>% tibble::add_column(Component = 'A7', .before = 'Value')
 
 
@@ -45,7 +45,7 @@ setMethod(f = AHEI2010, signature = 'ffqr',
                 mutate(Value = (PUFA / Energy) * 100) %>% select(Value) %>% tibble::add_column(Component = 'A8', .before = 'Value')
 
               A9 <-
-                AHEI_INDEX %>% summarise(Value = sum(SODIUM)) %>% tibble::add_column(Component = 'A9', .before = 'Value')
+                AHEI_INDEX %>% summarise(Value = sum(SODIUM) * 1E03) %>% tibble::add_column(Component = 'A9', .before = 'Value')
 
               A10 <-
                 AHEI_INDEX %>% filter(GROUP == 'A10') %>% summarise(Value = sum(SERVINGS)) %>% tibble::add_column(Component = 'A10', .before = 'Value')
@@ -112,8 +112,21 @@ setMethod(f = AHEI2010, signature = 'ffqr',
              select(A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11)
 
 
+           SodiumMin <- min(AHEIob@rawValues$A9)
+           SodiumMax <- max(AHEIob@rawValues$A9)
+
+           SodiumSeq <- score_increments(SodiumMin, SodiumMax, n = 1000) %>% mutate(Score = rev(Score))
+
+                      SodiumScore <- list()
+           for (i in seq_along(AHEIob@rawValues$A9)) {
+             SodiumScore[[i]] <-
+               round(SodiumSeq$Score[which(SodiumSeq$Lower <= AHEIob@rawValues$A9[i] &
+                                             SodiumSeq$Upper > AHEIob@rawValues$A9[i])] / 100, digits = 2)
+           }
+
+
            AHEIob@componentScores <- AHEIob@componentScores  %>%
-             mutate(A9 = (11 - ntile(A9, n = 10)))
+             mutate(A9 = unlist(SodiumScore))
 
 
            AHEIob@AHEIScore <- apply(AHEIob@componentScores, 1, sum)
