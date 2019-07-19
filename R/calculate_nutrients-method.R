@@ -16,7 +16,7 @@ setMethod(f = calculate_nutrients, signature = 'ffqr',
             ffq_nutrients <- list()
             for (i in seq_along(object@FFQ)) {
               ffq_nutrients[[i]] <-
-                object@FFQ[[i]]$GRAMS_SERVING[nutrient_match[[i]]$FFQ] * (Nutrients[nutrient_match[[i]]$INDEX, -1] / 100)
+                object@FFQ[[i]]$GRAMS_SERVING[nutrient_match[[i]]$FFQ] * (Nutrients[nutrient_match[[i]]$INDEX, -1])
 
               ffq_nutrients[[i]] <-
                 ffq_nutrients[[i]] %>% tibble::add_column(.,
