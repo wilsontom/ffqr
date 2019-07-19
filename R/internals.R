@@ -16,7 +16,7 @@ check_value <- function(x)
   v06 <- 'Once a day'
   v07 <- '2-3 per day'
   v08 <- '4-5 per day'
-  v09 <- '6+ per day'
+  v09 <- '6\\+ per day'
 
   pattern_values <-
     paste0(v01,
@@ -58,10 +58,10 @@ convert_servings <- function(x)
     serving <- 0
   }
   if (x == '1-3 per month') {
-    serving <- 0.1
+    serving <- 0.07
   }
   if (x == 'Once a week') {
-    serving <- 0.15
+    serving <- 0.14
   }
   if (x == '2-4 per week') {
     serving <- 0.43
@@ -78,7 +78,10 @@ convert_servings <- function(x)
   if (x == '4-5 per day') {
     serving <- 4.5
   }
-  if (x == '6+ per day') {
+  if (x == '6\\+ per day') {
+    serving <- 6
+  }
+  if(x == '6+ per day') {
     serving <- 6
   }
   return(serving)
