@@ -5,7 +5,7 @@
 #' @include allGenerics.R
 #' @include allClasses.R
 
-setMethod(f = AlcoholAHEI, signature = 'ffqr',
+setMethod(f = AlcoholAHEI, signature = 'AHEI',
           function(object, gender)
           {
             A10Raw <- object@rawValues %>% select(A10)
